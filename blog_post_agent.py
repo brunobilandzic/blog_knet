@@ -3,33 +3,28 @@ import cmd
 from dotenv import load_dotenv
 from utils import *
 from chapter import *
+import os
 
 load_dotenv()
 
-client = OpenAI(
-
-    
-)
+client = OpenAI()
 
 TURBO_MODEL ={ "name": "gpt-4-turbo",
                "cmd": "turbo"}
 MINI_MODEL = {"name": "gpt-4-mini",
                 "cmd": "mini"}
 
-SEO_SEGMENTS = ["meta title", "meta description", "meta keywords"]
+GPT_5_MODEL = {"name": "gpt-5-nano-2025-08-07",
+                "cmd": "gpt5"}
 
-models = [TURBO_MODEL, MINI_MODEL]
-
+models = [TURBO_MODEL, MINI_MODEL, GPT_5_MODEL]
 
 img_example = """
     <img class="slika" src="https://www.kuhinja.net/sk/opis_slike.jpg" alt="Opis slike" />
 """
 
-
-
-class BlogPost(cmd.Cmd):
+class BlogPostAgent(cmd.Cmd):
     intro = "Dobrodošli u AI generator blog postova. Unesite 'help' za popis komandi."
-    
 
     def __init__(self, theme=None, chapters=[], blog_description=None):
         super().__init__()
@@ -46,20 +41,20 @@ class BlogPost(cmd.Cmd):
     def blog_prompt(self):
         chapters_str = "\n\t".join([chapter.as_string(i) for (i, chapter) in enumerate(self.chapters)])
         return f"""
-            Pišeš HTML blog post na temu {self.theme}. Temu bloga možeš slobodno prilagoditi publici. Blog post mora biti u HTML formatu (samo <body> tag), pisan na hrvatskom jeziku. Opis bloga: {self.blog_description}, molim te da ga nadopuniš i prilagodiš publici. Napiši ga ispod naslova i prilagodi publici ako postoji. Ako nema, napiši ga kao da pišeš za širu publiku.
+            Pišeš HTML blog post na temu {self.theme}. Temu bloga možeš slobodno prilagoditi publici. Blog post mora biti u HTML formatu (samo <body> tag), pisan na hrvatskom jeziku i što opširniji, dug za čitanje, svako podpoglavlje treba imati bar 5 rečenica, treba biti informativan i zanimljiv, treba sadržavati što više riječi koje će mu pomoći u SEO pretrazi. Nemoj reći da nešto u članku publika može pronaći ako toga nema ili napiši to što kažeš. Dakle nemoj pisati "u ovom poglavlju ćemo ..." i potom to ne napišeš. U naslovima i opisima bloga i poglavlja nemoj koristiti riječi kao što su "poglavlje", "tema", "opis", "podtema" i slično. Napiši ih kao da pišeš pravi blog post.
+            Opis bloga je: {self.blog_description}, molim te da ga nadopuniš i prilagodiš publici. Napiši ga ispod naslova i prilagodi publici ako postoji. Ako nema, napiši ga kao da pišeš za širu publiku.
             Teme poglavlja sa pod poglavljima (sam odaberi moguće zamjenske naslove ako misliš da su prikladniji) su:
             {chapters_str}. Opise poglavlja također možeš nadopuniti i prilagoditi publici. Napiši ih ispod naslova poglavlja i prilagodi publici ako postoji.
-
             Možeš slobodno izmijeniti poglavlja ili dodati nova ako misliš da su prikladnija.
             Blog post mora sadržavati slike u formatu kao u ovome primjeru:  
                     {img_example} samo zamijeni opis slike s temom slike. Ništa drugo, isti je hostname i path. 
-
             Slike trebaju biti relevantne temi blog post-a i određenom poglavlju u kojem se nalaze.  
-
-            Nakon što završiš s pisanjem blog post-a, napiši SEO elemente bez tagova i markup-a samo u ovom formatu:  
+            Nakon što završiš s pisanjem blog post-a, izvad <body> tag-a napiši SEO elemente bez tagova i markup-a samo u ovom formatu:  
             title - meta title  
             description - meta description  
             keywords - meta keywords  
+
+            te isto izvan <body> tag-a predloži proizvode koje bi čitatelji mogli kupiti na temelju teme blog post-a tenapiši sve opise slika koje si predložio u blog postu za lakše nalazenje slika na internetu.
         """
     
     def do_generate(self, arg):
@@ -88,18 +83,19 @@ class BlogPost(cmd.Cmd):
             ],
         )
         result = completion.choices[0].message.content 
-
-        filename = replace_cro_letters(f"html_results/blog_post_{self.theme.replace(" ", "_").lower()}.html")
+        win_file_title = win_chars(self.theme)
+        folder = os.getenv("RESULTS_FOLDER")
+        filename = f"{folder}/blog_post_{win_file_title}.html"
         with open(f"{filename}", "w", encoding='utf-8-sig') as f:
             f.write(f"Theme: {self.theme}\n")
             f.write(f"Description: {self.blog_description}\n")
             for (i,chapter) in enumerate(self.chapters):
                 f.write(f"{chapter.as_string(i)}\n")
             f.write(result + "\n")
+            f.write(f"URL: {win_file_title}\n")
 
         print(f"Blog post saved to {filename}") 
-
-     
+        print("Done.")
     
     def do_theme(self, arg):
         if not arg.strip():
@@ -151,34 +147,9 @@ class BlogPost(cmd.Cmd):
     def do_exit(self, arg):
         print("Exiting the AI generator...")
         return True
-    
-
-
-    # def prompt_blog_post_and_seo(self):
-    #     return f"""
-    #         Tema blog post-a je {self.theme}. Poglavlja blog post-a su {self.chapters}. Možeš slobodno izmijeniti poglavlja ili dodati nova. Blog post mora sadržavati slike u formatu kao u ovome primjeru: {self.img_example}. Slike trebaju biti relevantne temi blog post-a i određenom poglavlju u kojem se nalaze.
-
-    #         Također, napiši prijedlog za SEO elemente:
-    #         - Meta title: Mora sadržavati ključne riječi koje korisnici pretražuju na Google.
-    #         - Meta description: Kratki opis koji privlači korisnike i sadrži ključne riječi.
-    #         - Keywords: Popis ključnih riječi relevantnih za temu blog post-a.
-    #         """
-
-
-# blog_posts = [
-#     BlogPost("Češnjak", ["Povijest", "Okus češnjaka", "Kako ga koristiti", "Kako odabrati najbolji češnjak", "Recepti s češnjakom"]),
-#     BlogPost("San", ["Zašto ljudi spavaju", "Kako san utječe na zdravlje", "Kako poboljšati san", "San i prehrana"]),
-#     BlogPost("Kava", ["Povijest kave", "Kako se pravi kava", "Industrija kave", "Kako odabrati najbolju kavu", "Kava i zdravlje"]),
-#     BlogPost("Čokolada", ["Povijest čokolade", "Kako se pravi čokolada", "Vrste čokolade", "Čokolada i zdravlje"]),
-#     BlogPost("Jagode", ["Zanimljivosti o jagodama", "Zdrastveni benefiti" "Kako odabrati najbolje jagode", "Recepti s jagodama"]),    
-# ]
-
-
-# cesnjak = BlogPost("Češnjak", ["Povijest", "Zdravlje", "Okus", "Savjeti"])
-
 
 def main():
-    new_post = BlogPost()
+    new_post = BlogPostAgent()
     new_post.cmdloop()
 
 if __name__ == "__main__":

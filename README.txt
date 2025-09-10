@@ -1,11 +1,14 @@
-Upisati OPENAI_API_KEY u .env datoteku
+3 načina za korištenje agenta.
 
-2 načina za korištenje agenta.
-
-1. Preko datoteke:
+1. Preko python datoteke:
    - Otvorite `generate.py` i unesite željene parametre za generiranje blog posta.
    - Pokrenite skriptu koristeći `python generate.py`.
    - Rezultat će biti spremljen u odgovarajuću izlaznu datoteku.
+
+2. Preko JSON datoteke:
+   - Kopirajte parameters.json datoteku te kopiju proizboljno preimenujte i popunite željenim sadržajem
+   - Pokrenite skriptu koristeći `python generate.py ime_json_datoteke`.
+   - Rezultat će biti spremljen u izlaznu html datoteku.
 
 2. Preko konzole:
    - Pokrenite `blog_post_agent.py` koristeći `python blog_post_agent.py`.
@@ -13,3 +16,4 @@ Upisati OPENAI_API_KEY u .env datoteku
    - Generirani sadržaj će biti spremljen u datoteku.
 
 
+Prije pokretanja agenta kreirati html_results folder.

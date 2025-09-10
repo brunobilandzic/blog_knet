@@ -1,7 +1,8 @@
 from utils import number_to_letter
 
 class Chapter():
-    def __init__(self, name, sub_themes=[], description=None):
+    def __init__(self, name=None, sub_themes=[], description=None):
+        print()
         print("Inicijalizacija poglavlja...")
         print(f"Primljeni naziv poglavlja: {name}")
         print(f"Primljeni opis poglavlja: {description}")
@@ -13,8 +14,6 @@ class Chapter():
             self.sub_themes = []
         self.sub_num = 0
         self.description = description 
-
-        
 
         print(f"sub teme: {self.sub_themes}") 
 
@@ -53,8 +52,6 @@ class Chapter():
         # Povećaj brojač pod-tema
         self.sub_num += 1
         
-
-    
     def __str__(self):
         return f"Chapter(name={self.name}, sub_themes={self.sub_themes})"
     
