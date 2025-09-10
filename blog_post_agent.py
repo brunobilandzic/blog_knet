@@ -37,6 +37,11 @@ class BlogPost(cmd.Cmd):
         self.chapters = chapters
         self.prompt = ">> "
         self.blog_description = blog_description
+
+    def do_print(self):
+        print(f"Tema: {self.theme}")
+        print(f"Opis bloga: {self.blog_description}")
+        self.do_list_chapters()
     
     def blog_prompt(self):
         chapters_str = "\n\t".join([chapter.as_string(i) for (i, chapter) in enumerate(self.chapters)])
