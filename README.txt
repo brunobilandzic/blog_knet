@@ -1,3 +1,5 @@
+Upisati OPENAI_API_KEY u .env datoteku
+
 2 načina za korištenje agenta.
 
 1. Preko datoteke:
