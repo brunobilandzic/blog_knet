@@ -2,14 +2,16 @@
     "blog_posts": 
         [
             {
-                "theme":"",
-                "blog_description":"",
+                "theme": "",
+                "blog_description": "",
+                "audience": "",
                 "chapters": [
                     {
-                    "name": "", 
-                    "description": "",
-                    "sub_themes": [""]
+                        "name": "", 
+                        "description": "",
+                        "sub_themes": [""]
                     }
-                ]}
+                ]
+            }
         ]
 }

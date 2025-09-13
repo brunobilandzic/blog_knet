@@ -21,6 +21,7 @@ def get_blog_posts(parameters):
         print()
         print(f"Tema blog posta: {blog_post_params['theme']}")
         print(f"Opis blog posta: {blog_post_params['blog_description']}")
+        print(f"Blog post je namijenjen za: {blog_post_params["audience"]}")
         print("Poglavlja:")
         print("\n".join(
             f"- {ch['name']} | {ch['description']} | sub_themes: {', '.join(ch['sub_themes'])}"
@@ -39,7 +40,8 @@ def get_blog_posts(parameters):
         blog_post = BlogPostAgent(
             theme=blog_post_params["theme"],
             chapters=chapter_list,
-            blog_description=blog_post_params["blog_description"]
+            blog_description=blog_post_params["blog_description"],
+            audience=blog_post_params["audience"]
         )
         blog_posts.append(blog_post)
 
