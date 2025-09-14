@@ -2,7 +2,8 @@
 
 1. Preko JSON datoteke:
    - Kopirajte parameters.json datoteku te kopiju proizvoljno preimenujte i popunite željenim sadržajem
-   - Pokrenite skriptu koristeći `python generate.py ime_json_datoteke`.
+   - Spremite je pod nazivom "custom_parameters.json"
+   - Pokrenite skriptu koristeći `python generate_json.py`.
    - Rezultat će biti spremljen u izlaznu html datoteku.
 
 2. Preko konzole:

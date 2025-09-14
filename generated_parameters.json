@@ -1,0 +1,159 @@
+{
+  "blog_posts": [
+    {
+      "theme": "Zero waste kuhanje",
+      "blog_description": "Praktični vodič kroz kuhanje bez otpada: savjeti, zamjene i recepti za svakodnevicu.",
+      "audience": "Ekološki aktivisti, mlade obitelji, studenti",
+      "chapters": [
+        {
+          "name": "Uvod u zero waste kuhanje",
+          "description": "Što znači kuhanje bez otpada i zašto je važno za okoliš i gospodarstvo.",
+          "sub_themes": [
+            "Planiranje obroka bez otpada",
+            "Smanjenje plastične ambalaže"
+          ]
+        },
+        {
+          "name": "Sastojci, zamjene i otpad koji se može iskoristiti",
+          "description": "Kako maksimalno iskoristiti sastojke i pretvoriti ostatke u nova jela.",
+          "sub_themes": [
+            "Korištenje ostataka hrane",
+            "Pametno skladištenje i označavanje"
+          ]
+        },
+        {
+          "name": "Održivi alati i navike kupovine",
+          "description": "Izbor alata i namirnica uz minimalni otpad i maksimalnu učinkovitost.",
+          "sub_themes": [
+            "Održivi izbor alata",
+            "Kupovina na veliko s manjim otpadom"
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Kuhinjski pribor i oprema",
+      "blog_description": "Pregled najvažnije kuhinjske opreme i savjeta za lakše i sigurnije kuhanje kod kuće.",
+      "audience": "Ljubitelji kuhanja, domaćice, amateri kuhari",
+      "chapters": [
+        {
+          "name": "Odabir osnove: tave, lonci i noževi",
+          "description": "Materijali, veličine i ergonomija za svakodnevnu upotrebu.",
+          "sub_themes": [
+            "Materijali (nehrđajući čelik, bakar)",
+            "Održavanje i dulji vijek trajanja"
+          ]
+        },
+        {
+          "name": "Specijalizirani alati za brze recepte",
+          "description": "Kada i zašto koristiti termometre, mikrovalne uređaje, multipraktike i slično.",
+          "sub_themes": [
+            "Električni alati vs. ručni alati",
+            "Sigurnosni savjeti"
+          ]
+        },
+        {
+          "name": "Održavanje opreme i organizacija radne plohe",
+          "description": "Kako čuvati posuđe i održavati red u kuhinji.",
+          "sub_themes": [
+            "Pravilno čišćenje i skladištenje",
+            "Planiranje ladica i ormarića"
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Organizacija kuhinje",
+      "blog_description": "Strategije za optimizaciju prostora, planiranje jelovnika i brzu pripremu obroka uz minimalan nered.",
+      "audience": "Zaposleni ljudi, male obitelji, studenti",
+      "chapters": [
+        {
+          "name": "Planiranje obroka i jelovnika",
+          "description": "Tjedno planiranje, kupovina i priprema unaprijed.",
+          "sub_themes": [
+            "Tjedni jelovnik",
+            "Lista kupovine i budžet"
+          ]
+        },
+        {
+          "name": "Raspored i zoniranje kuhinje",
+          "description": "Kako rasporediti radne zone i posuđe za bržu pripremu.",
+          "sub_themes": [
+            "Označavanje posuda",
+            "Zona za kuhanje i pečenje"
+          ]
+        },
+        {
+          "name": "Rutine za održavanje reda",
+          "description": "Jednostavne svakodnevne navike za urednu kuhinju.",
+          "sub_themes": [
+            "Brzo čišćenje nakon kuhanja",
+            "Uvijek uredan radni stol"
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Prehrana za posebne potrebe",
+      "blog_description": "Vodič kroz prilagodbu prehrane za alergije, dijabetes i sportsku prehranu uz sigurnost i okus.",
+      "audience": "Osobe s alergijama, dijabetičari, sportaši",
+      "chapters": [
+        {
+          "name": "Razumijevanje potreba i sigurnost hrane",
+          "description": "Kako prepoznati alergene i pravilno čitati deklaracije.",
+          "sub_themes": [
+            "Najčešći alergeni",
+            "Čitanje oznaka i suspektni aditivi"
+          ]
+        },
+        {
+          "name": "Planiranje obroka za specifične potrebe",
+          "description": "Izbor sigurnih sastojaka i pravilna distribucija makronutrijenata.",
+          "sub_themes": [
+            "Prilagođeni jelovnici",
+            "Glikemijski naboj (GL) i porcije"
+          ]
+        },
+        {
+          "name": "Recepti i prilagodbe",
+          "description": "Kako prilagoditi omiljene recepte uz sigurnost i okus.",
+          "sub_themes": [
+            "Zamjene sastojaka",
+            "Sportske verzije jela"
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dječja prehrana",
+      "blog_description": "Praktični savjeti za hranjenje djece: nutritivne potrebe, sigurnost hrane i usvajanje zdravih navika.",
+      "audience": "Roditelji, odgajatelji, pedijatri",
+      "chapters": [
+        {
+          "name": "Uvođenje namirnica i oblikovanje navika",
+          "description": "Kako uvoditi nove namirnice i poticati raznolikost.",
+          "sub_themes": [
+            "Uvođenje alergena i sigurnost",
+            "Veličine porcija po uzrastu"
+          ]
+        },
+        {
+          "name": "Sigurnost hrane i higijena",
+          "description": "Preporuke za pravilno rukovanje hranom i čuvanje",
+          "sub_themes": [
+            "Raspodjela hrane i čuvanje u sigurnim temperaturama",
+            "Čuvanje ostataka i sigurnost"
+          ]
+        },
+        {
+          "name": "Podržavanje zdravih navika uz igru",
+          "description": "Kako poticati pravilne prehrambene navike kroz igru i svakodnevne rutine.",
+          "sub_themes": [
+            "Voće i povrće kroz obroke",
+            "Uključivanje djece u pripremu"
+          ]
+        }
+      ]
+    }
+  ]
+}
